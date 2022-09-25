@@ -3,12 +3,18 @@ import "./Todo.css"
 import { FcTodoList } from "react-icons/fc";
 
 export function Todo(){
-    const [items,setItems]=useState(["apple"]);
-    const [fruit,setFruit]=useState("");
+    const [items,setItems]=useState([]);
+    const [list,setList]=useState("");
 
     const addItems=()=>{
-        setItems([...items,fruit]);
-        setFruit("")
+
+        if(items===""){
+         alert("Please add Item")
+        }
+        else{
+            setItems([...items,list]);
+            setList("");
+        }
     }
 
     return(
@@ -20,13 +26,25 @@ export function Todo(){
                 </div>
                
                <div>
-                    <input type="text" onChange={(e)=>setFruit(e.target.value)} placeholder="Enter Items ..." className="inputField"/>
+                    <input type="text" value={list} onChange={(e)=>setList(e.target.value)} placeholder="Enter Items ..." className="inputField"/>
                     <button onClick={addItems} className="addItem_btn">Add Items</button>
                 </div>
-            </div>
-            <div>
 
+                <div className="itemsList">
+                    {
+                    items.map((item)=>(
+                    <div>
+                        <span>{item}</span>
+                        <button onClick={()=>{
+                        let filteredItems=items.filter((value)=>value!==item)
+                            setItems([...filteredItems])
+                        }}>Remove</button>
+           
+                    </div>   
+                    ))}
+                </div>
             </div>
+            
         </>
     )
 }

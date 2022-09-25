@@ -20,14 +20,18 @@ body{
 
 .main_heading{
     display: flex;
+    margin: 20px;
 }
 
 .todoIcon{
-    font-size: 33px;
+    font-size: 60px;
+    margin: 5px;
 }
 
 .heading{
     color: #f5f6fa;
+    font-size: 50px;
+    margin: 5px;
 }
 
 .inputField{
@@ -41,6 +45,7 @@ body{
 
 .addItem_btn{
     padding: 5px;
+    margin: 0 5px;
     font-size: 23px;
     border-radius: 0 5px 5px 0;
     /* border: none; */
