@@ -21,7 +21,9 @@ export function Todo(){
     }
 
     const handleEdit=(event)=>{
-        
+        if(event.currentTarget.id){
+            
+        }
 
     }
     return(
@@ -41,7 +43,7 @@ export function Todo(){
                     {
                     items.map((item)=>(
                     <div className="list">
-                        <span>{item}</span>
+                        <span contentEditable={false}>{item}</span>
                         <div>
                         <button className="icon_btn" onClick={()=>{setEdit(handleEdit)}}><BsFillPencilFill className="edit_icon" /></button>
                         <button onClick={()=>{
