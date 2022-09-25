@@ -21,7 +21,7 @@ export function Todo(){
     }
 
     const handleEdit=(event)=>{
-        console.log(event.cuuretTarget.id)
+        
 
     }
     return(

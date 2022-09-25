@@ -55,7 +55,8 @@ body{
 
 .itemsList{
     width: 430px;
-    background-color: #30336b;
+    background-color: #f0932b;
+    border-radius: 5px;
 }
 
 .input_btn{
