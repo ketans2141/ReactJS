@@ -52,3 +52,31 @@ body{
     outline: none;
     background-color: #ffa801;
 }
+
+/* .itemsList{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+} */
+
+.input_btn{
+    margin-bottom: 50px;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 33px;
+    background-color: #d2dae2;
+}
+
+span{
+    padding-left: 10px;
+}
+
+.trash_icon{
+    color: red;
+    font-size: 33px;
+}

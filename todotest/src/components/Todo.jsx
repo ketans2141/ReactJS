@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import "./Todo.css"
 import { FcTodoList } from "react-icons/fc";
+import { BiTrash } from "react-icons/bi";
 
 export function Todo(){
     const [items,setItems]=useState([]);
@@ -8,8 +9,8 @@ export function Todo(){
 
     const addItems=()=>{
 
-        if(items===""){
-         alert("Please add Item")
+        if(!items){
+            console.log("add")
         }
         else{
             setItems([...items,list]);
@@ -25,7 +26,7 @@ export function Todo(){
                     <h1 className="heading">Todo List</h1>
                 </div>
                
-               <div>
+               <div className="input_btn">
                     <input type="text" value={list} onChange={(e)=>setList(e.target.value)} placeholder="Enter Items ..." className="inputField"/>
                     <button onClick={addItems} className="addItem_btn">Add Items</button>
                 </div>
@@ -33,12 +34,13 @@ export function Todo(){
                 <div className="itemsList">
                     {
                     items.map((item)=>(
-                    <div>
+                    <div className="list">
                         <span>{item}</span>
                         <button onClick={()=>{
                         let filteredItems=items.filter((value)=>value!==item)
-                            setItems([...filteredItems])
-                        }}>Remove</button>
+                        setItems([...filteredItems])
+                        }
+                        }><BiTrash className="trash_icon"/></button>
            
                     </div>   
                     ))}
