@@ -53,15 +53,15 @@ body{
     background-color: #ffa801;
 }
 
-/* .itemsList{
-    width: 600px;
-    margin: 0 auto;
-    text-align: center;
-} */
+.itemsList{
+    width: 430px;
+    background-color: #30336b;
+}
 
 .input_btn{
     margin-bottom: 50px;
 }
+
 .list{
     display: flex;
     justify-content: space-between;
@@ -76,7 +76,20 @@ span{
     padding-left: 10px;
 }
 
+.icon_btn{
+    margin: 5px;
+    border: none;
+    outline: none;
+    background-color: #d2dae2;
+    cursor: pointer;
+}
+
 .trash_icon{
     color: red;
+    font-size: 33px;
+}
+
+.edit_icon{
+    color: #0c2461;
     font-size: 33px;
 }

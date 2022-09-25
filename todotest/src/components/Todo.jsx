@@ -2,15 +2,17 @@ import React,{useState} from "react";
 import "./Todo.css"
 import { FcTodoList } from "react-icons/fc";
 import { BiTrash } from "react-icons/bi";
+import { BsFillPencilFill } from "react-icons/bs";
 
 export function Todo(){
     const [items,setItems]=useState([]);
     const [list,setList]=useState("");
+    const [ edit, setEdit]=useState("");
 
     const addItems=()=>{
 
-        if(!items){
-            console.log("add")
+        if(!list){
+            alert("Please enter item")
         }
         else{
             setItems([...items,list]);
@@ -18,6 +20,10 @@ export function Todo(){
         }
     }
 
+    const handleEdit=(event)=>{
+        console.log(event.cuuretTarget.id)
+
+    }
     return(
         <>
             <div className="container">
@@ -36,11 +42,14 @@ export function Todo(){
                     items.map((item)=>(
                     <div className="list">
                         <span>{item}</span>
+                        <div>
+                        <button className="icon_btn" onClick={()=>{setEdit(handleEdit)}}><BsFillPencilFill className="edit_icon" /></button>
                         <button onClick={()=>{
-                        let filteredItems=items.filter((value)=>value!==item)
-                        setItems([...filteredItems])
-                        }
-                        }><BiTrash className="trash_icon"/></button>
+                            let filteredItems=items.filter((value)=>value!==item)
+                            setItems([...filteredItems])
+                            }
+                        } className="icon_btn"><BiTrash className="trash_icon"/></button>
+                        </div>
            
                     </div>   
                     ))}
