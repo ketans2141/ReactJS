@@ -7,7 +7,9 @@ import { BsFillPencilFill } from "react-icons/bs";
 export function Todo(){
     const [items,setItems]=useState([]);
     const [list,setList]=useState("");
-    const [ edit, setEdit]=useState("");
+    const [ edit, setEdit]=useState(false);
+    const [editableIndex, setEditableIndex] = useState()
+    const [editedTodo, setEditedTodo] = useState("")
 
     const addItems=()=>{
 
@@ -20,12 +22,18 @@ export function Todo(){
         }
     }
 
-    const handleEdit=(event)=>{
-        if(event.currentTarget.id){
-            
-        }
 
-    }
+    const editTodo = (index) => {
+        setEdit(true)
+        setEditableIndex(index)
+      }
+      const saveTodo = (index) => {
+        const newTodos = [...items]
+        newTodos[index] = editedTodo
+        setItems(newTodos)
+        setEdit(false)
+        setEditableIndex(-1)
+      }
     return(
         <>
             <div className="container">
@@ -40,21 +48,34 @@ export function Todo(){
                 </div>
 
                 <div className="itemsList">
-                    {
-                    items.map((item)=>(
+                {
+                    items.map((item,index)=>{
+                        return(
                     <div className="list">
-                        <span contentEditable={false}>{item}</span>
+                        {index === editableIndex && edit ?
                         <div>
-                        <button className="icon_btn" onClick={()=>{setEdit(handleEdit)}}><BsFillPencilFill className="edit_icon" /></button>
-                        <button onClick={()=>{
+                            <input type="text" onChange={(e) => {
+                            setEditedTodo(e.target.value)
+                            console.log(editedTodo)
+                            }} />
+                            <button onClick={() => saveTodo(index)}>Save</button>
+                        </div> :
+                        <div className="eachList">
+                            <span>{item}</span>
+                            {/* <div> */}
+                                <button className="icon_btn" onClick={() => editTodo(index)}><BsFillPencilFill className="edit_icon"/></button>
+                             {/* </div> */}
+
+                            <button onClick={()=>{
                             let filteredItems=items.filter((value)=>value!==item)
                             setItems([...filteredItems])
                             }
-                        } className="icon_btn"><BiTrash className="trash_icon"/></button>
-                        </div>
-           
-                    </div>   
-                    ))}
+                            } className="icon_btn"><BiTrash className="trash_icon"/></button>
+                    
+                        </div>}
+                    
+                    </div>  
+                    )})}
                 </div>
             </div>
             
