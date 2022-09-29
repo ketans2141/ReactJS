@@ -43,6 +43,14 @@ body{
     outline: none;
 }
 
+.edit_input{
+    width: 300px;
+    padding: 4px;
+    border: none;
+    outline: none;
+}
+
+
 .addItem_btn{
     padding: 5px;
     margin: 0 5px;
@@ -73,6 +81,11 @@ body{
     background-color: #d2dae2;
 }
 
+.eachList{
+    display: flex;
+    justify-content: space-between;
+}
+
 span{
     padding-left: 10px;
 }
@@ -88,6 +101,10 @@ span{
 
 .trash_icon{
     color: red;
+    font-size: 33px;
+}
+
+.save_icon{
     font-size: 33px;
 }
 

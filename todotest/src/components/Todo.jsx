@@ -3,6 +3,7 @@ import "./Todo.css"
 import { FcTodoList } from "react-icons/fc";
 import { BiTrash } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
+import { FcCheckmark } from "react-icons/fc";
 
 export function Todo(){
     const [items,setItems]=useState([]);
@@ -54,15 +55,15 @@ export function Todo(){
                     <div className="list">
                         {index === editableIndex && edit ?
                         <div>
-                            <input type="text" onChange={(e) => {
+                            <input type="text" className="edit_input" onChange={(e) => {
                             setEditedTodo(e.target.value)
                             console.log(editedTodo)
                             }} />
-                            <button onClick={() => saveTodo(index)}>Save</button>
+                            <button onClick={() => saveTodo(index)} className="icon_btn"><FcCheckmark className="save_icon"/></button>
                         </div> :
                         <div className="eachList">
                             <span>{item}</span>
-                            {/* <div> */}
+                            <div className="btn_container">
                                 <button className="icon_btn" onClick={() => editTodo(index)}><BsFillPencilFill className="edit_icon"/></button>
                              {/* </div> */}
 
@@ -71,6 +72,7 @@ export function Todo(){
                             setItems([...filteredItems])
                             }
                             } className="icon_btn"><BiTrash className="trash_icon"/></button>
+                            </div>
                     
                         </div>}
                     
