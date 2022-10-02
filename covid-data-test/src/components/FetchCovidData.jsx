@@ -51,7 +51,7 @@ export function FetchCovidData(){
                         
                     }}>Dark / Light</button>
                 </div>
-                    <div>
+                    <div className="table_wrapper">
                         <table className="covid_data">
                             <thead>
                                 <tr>
