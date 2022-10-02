@@ -4,9 +4,11 @@ import axios from "axios"
 
 export function FetchCovidData(){
 
+
     const [covidData,setCovidData]=useState([]);
     const [search,setSearch] =useState("");
     const [filterSearchData,setFilterSearchData]=useState([]);
+
 
     useEffect(()=>{
         async function getData(){
@@ -25,7 +27,7 @@ export function FetchCovidData(){
     useEffect(()=>{
         const filterSearch=covidData.filter((item)=>{
             if(item.state){
-                return item.state.includes(search)
+                return item.state.startsWith(search)
             }
         });
         
@@ -43,7 +45,11 @@ export function FetchCovidData(){
                 <div className="search_div">
                     <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Enter your state..." className="search_input"/>
                     <button className="search_btn">Search</button>
-                    <button className="dark_light">Dark / Light</button>
+                    <button className="active dark_light" onClick={(e)=>{
+                        document.body.classList.toggle("active");
+                        document.querySelector(".dark_light").classList.toggle("active");
+                        
+                    }}>Dark / Light</button>
                 </div>
                     <div>
                         <table className="covid_data">
@@ -80,7 +86,6 @@ export function FetchCovidData(){
                     </div>
                
             </div>
-            
         </>
     )
 }
